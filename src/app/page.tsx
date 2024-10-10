@@ -1,100 +1,124 @@
-import Image from "next/image";
+import React from 'react';
 
-export default function Home() {
+export default function BarberShopLanding() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div style={{ fontFamily: 'Arial, sans-serif', color: 'black', backgroundColor: 'white' }}>
+      <header style={{ padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #e5e5e5' }}>
+        <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ width: '64px', height: '64px', overflow: 'hidden', borderRadius: '50%', position: 'relative' }}>
+            
+          </div>
+        </a>
+        <nav>
+          <a href="#servicios" style={{ marginRight: '1rem' }}>Servicios</a>
+          <a href="#barberos" style={{ marginRight: '1rem' }}>Nuestros Barberos</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <main>
+        <section style={{ backgroundColor: 'black', color: 'white', padding: '4rem 1rem', textAlign: 'center' }}>
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Bienvenido a Barbiere</h1>
+          <p style={{ maxWidth: '700px', margin: '0 auto', color: '#a0aec0' }}>
+            Salone di Bellezza - Experimenta el arte del cuidado personal con nuestros expertos barberos.
+          </p>
+          <button 
+            style={{ 
+              backgroundColor: 'white', 
+              color: 'black', 
+              padding: '0.5rem 1rem', 
+              border: 'none', 
+              borderRadius: '0.25rem', 
+              marginTop: '1rem', 
+              cursor: 'pointer' 
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            Reservar Cita
+          </button>
+        </section>
+
+        <section id="servicios" style={{ padding: '4rem 1rem' }}>
+          <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '2rem' }}>Nuestros Servicios</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ backgroundColor: 'black', color: 'white', padding: '2rem', borderRadius: '0.5rem' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Servicios para Caballeros</h3>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem' }}>
+                <li>Corte para caballeros y niños</li>
+                <li>Faciales</li>
+                <li>Trabajos de color</li>
+                <li>Arreglo de barba</li>
+                <li>Entre otros...</li>
+              </ul>
+            </div>
+            <div style={{ backgroundColor: 'black', color: 'white', padding: '2rem', borderRadius: '0.5rem' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Servicios para Damas</h3>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem' }}>
+                <li>Corte</li>
+                <li>Trabajos de color</li>
+                <li>Tratamientos de keratina, botox, etc...</li>
+                <li>Manicura en gel</li>
+                <li>Acrílico</li>
+                <li>Entre otros...</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="barberos" style={{ backgroundColor: 'black', color: 'white', padding: '4rem 1rem' }}>
+          <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '2rem' }}>Conoce a Nuestros Barberos</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+            {[1, 2, 3].map((barbero) => (
+              <div key={barbero} style={{ backgroundColor: 'white', color: 'black', padding: '2rem', borderRadius: '0.5rem', textAlign: 'center' }}>
+                
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Barbero {barbero}</h3>
+                <p style={{ color: '#4a5568' }}>Experto en estilos clásicos y modernos</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section style={{ padding: '4rem 1rem' }}>
+          <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '2rem' }}>Lo Que Dicen Nuestros Clientes</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ backgroundColor: 'black', color: 'white', padding: '2rem', borderRadius: '0.5rem' }}>
+              <p style={{ fontStyle: 'italic' }}>El mejor corte de pelo que he tenido. ¡La atención al detalle es increíble!</p>
+              <p style={{ fontWeight: 'bold', marginTop: '1rem' }}>- Juan D.</p>
+            </div>
+            <div style={{ backgroundColor: 'black', color: 'white', padding: '2rem', borderRadius: '0.5rem' }}>
+              <p style={{ fontStyle: 'italic' }}>El afeitado con toalla caliente fue increíblemente relajante. ¡Definitivamente volveré!</p>
+              <p style={{ fontWeight: 'bold', marginTop: '1rem' }}>- Miguel S.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contacto" style={{ backgroundColor: 'black', color: 'white', padding: '4rem 1rem' }}>
+          <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '2rem' }}>Contáctanos</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{ backgroundColor: 'white', color: 'black', padding: '2rem', borderRadius: '0.5rem' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>Ubicación</h3>
+              <p style={{ marginBottom: '1rem' }}>
+                <span role="img" aria-label="location">📍</span> Calle Villa, Esquina Distrito 295, Ponce, Puerto Rico
+              </p>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginTop: '1.5rem', marginBottom: '1rem' }}>Horario</h3>
+              <p><span role="img" aria-label="clock">🕒</span> Lun-Sáb: 9am - 7pm</p>
+              <p><span role="img" aria-label="clock">🕒</span> Dom: Cerrado</p>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginTop: '1.5rem', marginBottom: '1rem' }}>Contacto</h3>
+              <p><span role="img" aria-label="phone">📞</span> (787) 245-4411</p>
+              <p><span role="img" aria-label="email">📧</span> julianie1999@gmail.com</p>
+            </div>
+            <div style={{ backgroundColor: 'white', color: 'black', padding: '2rem', borderRadius: '0.5rem' }}>
+              
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer style={{ borderTop: '1px solid #e5e5e5', padding: '1rem', textAlign: 'center', fontSize: '0.875rem', color: '#4a5568' }}>
+        <p>© 2024 Barbiere - Salone di Bellezza. Todos los derechos reservados.</p>
+        <nav style={{ marginTop: '0.5rem' }}>
+          <a href="#" style={{ marginRight: '1rem' }}>Términos de Servicio</a>
+          <a href="#">Privacidad</a>
+        </nav>
       </footer>
     </div>
   );
